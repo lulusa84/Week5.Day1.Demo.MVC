@@ -1,0 +1,41 @@
+﻿@model Week5.Day1.Demo.Core.Models.Employee
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Employee #@Model.EmployeeID</h4>
+    <dl class="row">
+        <dt class="col-sm-3">
+            First Name
+        </dt>
+        <dt class="col-sm-3">
+            @Model.FirstName
+        </dt>
+        <dt class="col-sm-3">
+            Last Name
+        </dt>
+        <dt class="col-sm-3">
+            @Model.LastName
+        </dt>
+        <dt class="col-sm-3">
+            Date Of Birth
+        </dt>
+        <dt class="col-sm-3">
+            @Model.BirthDate.ToShortDateString()
+        </dt>
+        <dt class="col-sm-3">
+            Initial Activity
+        </dt>
+        <dt class="col-sm-3">
+            @Model.HireDate.ToShortDateString()
+        </dt>
+    </dl>
+</div>
+<!-- <div>
+   @* @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a> *@
+</div> -->

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Employees Page";
+    ViewData["NumEmployees"] = Model.Count();
+    @*@ViewBag.NumEmployees = Model.Count(); *@
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>EmployeeID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>BirthDate</th>
+            <th>HireDate</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeID</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.BirthDate.ToShortDateString()</td>
+                <td>@item.HireDate.ToShortDateString()</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td># Employees</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@ViewData["NumEmployees"]</td>
+            @*@ViewBag.NumEmployees*@
+        </tr>
+    </tfoot>
+
+</table>
+
+<div>
+    <a asp-action="Create">New Employee</a> 
+</div> 
